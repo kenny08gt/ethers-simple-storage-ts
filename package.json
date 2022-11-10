@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.3",
     "ethers": "^5.7.2",
     "fs": "^0.0.1-security",
     "fs-extra": "^10.1.0",
@@ -7,7 +8,8 @@
   },
   "scripts": {
     "compile": "yarn solcjs --bin --abi --include-path node_modules/ --bade-path . -o . SimpleStorage.sol",
-    "compile-run": "yarn tsc && node dist/deploy.js"
+    "compile-run": "yarn tsc && node dist/deploy.js",
+    "compile-run-encrypt": "yarn tsc && node dist/encryptKey.js"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
