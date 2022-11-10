@@ -5,22 +5,13 @@ import * as dotenv from "dotenv"
 
 dotenv.config()
 
-declare var process: {
-    env: {
-        PRIVATE_KEY: string
-        RPC_URL: string
-        PRIVATE_KEY_PASSWORD: string
-    }
-    exit: any
-}
-
 async function main() {
     // hHTTP://127.0.0.1:7545
     const provider: JsonRpcProvider = new (
         await ethers
-    ).providers.JsonRpcProvider(process.env.RPC_URL)
+    ).providers.JsonRpcProvider(process.env.RPC_URL!)
     const wallet: Wallet = new (await ethers).Wallet(
-        process.env.PRIVATE_KEY,
+        process.env.PRIVATE_KEY!,
         provider
     )
     // const encryptedJson = fs.readFileSync("./.encryptedKey.json", "utf-8")
